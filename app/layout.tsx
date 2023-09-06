@@ -48,11 +48,12 @@ export default function RootLayout({
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
-                href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
+                href="https://github.com/default-sameer/onlypans"
                 title="nextui.org homepage"
+                target="_blank"
               >
-                <span className="text-default-600">Powered by</span>
-                <p className="text-primary">NextUI</p>
+                <span className="text-default-600"> 🏗 Made by</span>
+                <p className="text-primary">Sameer Joshi</p>
               </Link>
             </footer>
           </div>

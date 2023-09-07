@@ -6,6 +6,8 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import { ClerkLoading, ClerkProvider, ClerkLoaded } from "@clerk/nextjs";
+import LoadingComponent from "./loading";
 
 export const metadata: Metadata = {
   title: {
@@ -38,26 +40,56 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 md:px-6 px-2 flex-grow">
-              {children}
-            </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://github.com/default-sameer/onlypans"
-                title="nextui.org homepage"
-                target="_blank"
-              >
-                <span className="text-default-600"> 🏗 Made by</span>
-                <p className="text-primary">Sameer Joshi</p>
-              </Link>
-            </footer>
-          </div>
-        </Providers>
+        <ClerkProvider>
+          <ClerkLoading>
+            <Providers
+              themeProps={{ attribute: "class", defaultTheme: "dark" }}
+            >
+              <div className="relative flex flex-col h-screen">
+                <Navbar />
+                <main className="container mx-auto max-w-7xl pt-16 md:px-6 px-2 flex-grow">
+                  <LoadingComponent />
+                </main>
+                <footer className="w-full flex items-center justify-center py-3">
+                  <Link
+                    isExternal
+                    className="flex items-center gap-1 text-current"
+                    href="https://github.com/default-sameer/onlypans"
+                    title="nextui.org homepage"
+                    target="_blank"
+                  >
+                    <span className="text-default-600"> 🏗 Made by</span>
+                    <p className="text-primary">Sameer Joshi</p>
+                  </Link>
+                </footer>
+              </div>
+            </Providers>
+          </ClerkLoading>
+          <ClerkLoaded>
+            <Providers
+              themeProps={{ attribute: "class", defaultTheme: "dark" }}
+            >
+              <div className="relative flex flex-col h-screen">
+                <Navbar />
+                <main className="container mx-auto max-w-7xl pt-16 md:px-6 px-2 flex-grow">
+                  {children}
+                </main>
+                <footer className="w-full flex items-center justify-center py-3">
+                  <Link
+                    isExternal
+                    className="flex items-center gap-1 text-current"
+                    href="https://github.com/default-sameer/onlypans"
+                    title="nextui.org homepage"
+                    target="_blank"
+                  >
+                    <span className="text-default-600"> 🏗 Made by</span>
+                    <p className="text-primary">Sameer Joshi</p>
+                  </Link>
+                </footer>
+              </div>
+            </Providers>
+          </ClerkLoaded>
+        </ClerkProvider>
       </body>
     </html>
   );

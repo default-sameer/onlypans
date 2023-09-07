@@ -33,6 +33,7 @@ import { usePathname } from "next/navigation";
 
 import { Logo } from "@/components/icons";
 import { useState, useEffect } from "react";
+import { UserButton, SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
@@ -115,6 +116,12 @@ export const Navbar = () => {
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
+        <SignedIn>
+          <UserButton afterSignOutUrl="/" />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
         <NavbarMenuToggle className="lg:hidden " />
       </NavbarContent>
 

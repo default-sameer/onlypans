@@ -10,6 +10,7 @@ import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
+import ModalComponent from "@/components/Modal";
 
 export default function Home() {
   // get query params from url

@@ -5,13 +5,20 @@ import { CheckIcon } from "lucide-react";
 import Image from "next/image";
 import { useFormik } from "formik";
 import axios from "axios";
+import { PRICING } from "@/types/pricing";
 
-const includedFeatures = [
-  "Private forum access",
-  "Member resources",
-  "Entry to annual conference",
-  "Official member t-shirt",
-];
+// add twoType of features in the array with free and paid key
+const includedFeatures = {
+  free: ["Limited To 5 Posts", "Limited Access To All Features"],
+  paid: [
+    "Unlimited Posts",
+    "Unlimited Access To All Features",
+    "Private forum access",
+    "Member resources",
+    "Entry to annual conference",
+    "Official member t-shirt",
+  ],
+};
 
 export default function PricingPage() {
   return (
@@ -36,7 +43,7 @@ export default function PricingPage() {
             role="list"
             className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
           >
-            {includedFeatures.map((feature) => (
+            {includedFeatures.free.map((feature) => (
               <li key={feature} className="flex gap-x-3">
                 <CheckIcon
                   className="h-6 w-5 flex-none text-indigo-600"
@@ -62,7 +69,7 @@ export default function PricingPage() {
                 </span>
               </p>
               <a
-                href="/payment"
+                href={`/payment?plan=${PRICING.FREE}`}
                 className="flex justify-center gap-2 items-center mt-10 w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 <span className="text-xs">Get Access</span>
@@ -93,7 +100,7 @@ export default function PricingPage() {
             role="list"
             className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
           >
-            {includedFeatures.map((feature) => (
+            {includedFeatures.paid.map((feature) => (
               <li key={feature} className="flex gap-x-3">
                 <CheckIcon
                   className="h-6 w-5 flex-none text-indigo-600"
@@ -119,7 +126,7 @@ export default function PricingPage() {
                 </span>
               </p>
               <a
-                href="/payment"
+                href={`/payment?plan=${PRICING.MEMBERSHIP}&type=monthly`}
                 className="flex justify-center gap-2 items-center mt-10 w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 <span className="text-xs">Get Access</span>
@@ -150,7 +157,7 @@ export default function PricingPage() {
             role="list"
             className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
           >
-            {includedFeatures.map((feature) => (
+            {includedFeatures.paid.map((feature) => (
               <li key={feature} className="flex gap-x-3">
                 <CheckIcon
                   className="h-6 w-5 flex-none text-indigo-600"
@@ -176,7 +183,7 @@ export default function PricingPage() {
                 </span>
               </p>
               <a
-                href="/payment"
+                href={`/payment?plan=${PRICING.MEMBERSHIP}&type=yearly`}
                 className="flex justify-center gap-2 items-center mt-10 w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 <span className="text-xs">Get Access</span>

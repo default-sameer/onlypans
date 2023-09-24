@@ -21,7 +21,6 @@ import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
 import clsx from "clsx";
 
-import { ThemeSwitch } from "@/components/theme-switch";
 import {
   TwitterIcon,
   GithubIcon,
@@ -34,6 +33,7 @@ import { usePathname } from "next/navigation";
 import { Logo } from "@/components/icons";
 import { useState, useEffect } from "react";
 import { UserButton, SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
@@ -113,15 +113,24 @@ export const Navbar = () => {
           {/* <Link isExternal href={siteConfig.links.github} aria-label="Github">
             <GithubIcon className="text-default-500" />
           </Link> */}
-          <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <SignedIn>
-          <UserButton afterSignOutUrl="/" />
+          <UserButton
+            appearance={{
+              baseTheme: dark,
+              elements: {
+                card: {
+                  background: "bg-red-500",
+                },
+              },
+            }}
+            afterSignOutUrl="/"
+          />
         </SignedIn>
-        <SignedOut>
+        {/* <SignedOut>
           <SignInButton />
-        </SignedOut>
+        </SignedOut> */}
         <NavbarMenuToggle className="lg:hidden " />
       </NavbarContent>
 
@@ -132,7 +141,6 @@ export const Navbar = () => {
         <Link isExternal href={siteConfig.links.discord} aria-label="Discord">
           <DiscordIcon className="text-default-500" />
         </Link>
-        <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
 

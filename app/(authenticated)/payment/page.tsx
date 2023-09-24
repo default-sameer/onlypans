@@ -132,6 +132,7 @@ const PaymentSelectionPage = () => {
                   headers: {
                     Authorization: `Key ${apiKey}`,
                     "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*",
                   },
                 }
               );

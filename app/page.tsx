@@ -1,16 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import NextLink from "next/link";
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import ModalComponent from "@/components/Modal";
+import { Button } from "@nextui-org/react";
 
 export default function Home() {
   // get query params from url
@@ -31,24 +25,36 @@ export default function Home() {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center gap-5 py-8 md:py-10">
-      <div className="px-2 md:px-6">
-        <Image
-          src="/assets/home/undraw_cooking.svg"
+    <section className="flex flex-col items-center justify-center gap-5 md:gap-10 py-8">
+      <div
+        id="head-gradient"
+        className="flex justify-center items-center text-center flex-col gap-10 md:gap-16 p-5 md:p-10 rounded-3xl"
+      >
+        <div className="flex flex-col gap-3 md:gap-6">
+          <h1
+            className={title({
+              size: "sm",
+              className:
+                "text-3xl font-black tracking-tight text-center md:text-5xl lg:tracking-tighter lg:text-7xl",
+            })}
+          >
+            Teaching {displayWord()} how to cook.
+          </h1>
+          <p
+            className={subtitle({
+              className:
+                "mx-auto mt-4 text-lg text-center leading-1 md:px-20 lg:leading-normal lg:text-2xl",
+            })}
+          >
+            Unleash Your Inner Chef, One Recipie at a Time
+          </p>
+        </div>
+        <img
+          className="w-[150px] h-[150px] md:w-[300px] xl:h-[400px] xl:w-[400px] mx-auto"
+          src="/assets/home/banner-image.svg"
           alt="Woman Cooking"
-          objectFit="contain"
-          height={500}
-          width={500}
         />
       </div>
-      <h1
-        className={title({
-          size: "sm",
-          className: "text-center",
-        })}
-      >
-        Teaching {displayWord()} how to cook, one recipe at a time.
-      </h1>
     </section>
   );
 }

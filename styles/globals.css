@@ -7,3 +7,40 @@
     @apply !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-transparent;
   }
 }
+
+#head-gradient {
+  background: hsla(341, 94%, 49%, 1);
+
+  background: linear-gradient(
+    90deg,
+    hsla(341, 94%, 49%, 1) 0%,
+    hsla(16, 90%, 77%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(341, 94%, 49%, 1) 0%,
+    hsla(16, 90%, 77%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(341, 94%, 49%, 1) 0%,
+    hsla(16, 90%, 77%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F40752", endColorstr="#F9AB8F", GradientType=1 );
+}
+
+.cl-userButtonPopoverCard {
+  margin-top: 10px;
+  /* padding: 16px 0 !important; */
+}
+
+.cl-userButtonPopoverFooter {
+  display: none;
+}
+
+.cl-internal-b3fm6y {
+  display: none;
+}

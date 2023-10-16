@@ -4,9 +4,9 @@ import React from "react";
 
 interface Props {
   user: {
-    id: string;
+    id?: string;
     userID: string;
-    username: string;
+    username: string | null | undefined;
     name: string;
     image: string;
     bio: string;

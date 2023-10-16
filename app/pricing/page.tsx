@@ -24,7 +24,7 @@ export default function PricingPage() {
   return (
     <div className="flex gap-5 flex-col px-2">
       <h1 className={title()}>Pricing</h1>
-      <section className="flex gap-5 bg-gray-400 rounded-2xl p-4 dark:bg-white justify-between flex-col lg:flex-row">
+      <section className="flex gap-5 bg-[#5fa8d3] rounded-2xl p-4  justify-between flex-col lg:flex-row">
         <div>
           <p
             className={subtitle({
@@ -41,7 +41,7 @@ export default function PricingPage() {
           </div>
           <ul
             role="list"
-            className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
+            className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-white sm:grid-cols-2 sm:gap-6"
           >
             {includedFeatures.free.map((feature) => (
               <li key={feature} className="flex gap-x-3">
@@ -81,7 +81,7 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
-      <section className="flex gap-5 bg-gray-400 rounded-2xl p-4 dark:bg-white justify-between flex-col lg:flex-row">
+      <section className="flex gap-5 bg-[#5fa8d3] rounded-2xl p-4  justify-between flex-col lg:flex-row">
         <div>
           <p
             className={subtitle({
@@ -98,7 +98,7 @@ export default function PricingPage() {
           </div>
           <ul
             role="list"
-            className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
+            className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-white sm:grid-cols-2 sm:gap-6"
           >
             {includedFeatures.paid.map((feature) => (
               <li key={feature} className="flex gap-x-3">
@@ -138,7 +138,7 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
-      <section className="flex gap-5 bg-gray-400 rounded-2xl p-4 dark:bg-white justify-between flex-col lg:flex-row">
+      <section className="flex gap-5 bg-[#5fa8d3] rounded-2xl p-4  justify-between flex-col lg:flex-row">
         <div>
           <p
             className={subtitle({
@@ -155,7 +155,7 @@ export default function PricingPage() {
           </div>
           <ul
             role="list"
-            className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
+            className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-white sm:grid-cols-2 sm:gap-6"
           >
             {includedFeatures.paid.map((feature) => (
               <li key={feature} className="flex gap-x-3">

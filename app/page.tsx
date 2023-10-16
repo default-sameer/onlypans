@@ -28,7 +28,7 @@ export default function Home() {
     <section className="flex flex-col items-center justify-center gap-5 md:gap-10 py-8">
       <div
         id="head-gradient"
-        className="flex justify-center items-center text-center flex-col gap-10 md:gap-16 p-5 md:p-10 rounded-3xl"
+        className="flex justify-center items-center text-center flex-col gap-10 md:gap-16 p-5 md:p-10 rounded-3xl bg-[#5FA8D3]"
       >
         <div className="flex flex-col gap-3 md:gap-6">
           <h1

@@ -34,11 +34,15 @@ import { Logo } from "@/components/icons";
 import { useState, useEffect } from "react";
 import { UserButton, SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+import { useHandleOpenCommandPalette } from "react-cmdk";
+import CommandPaletteComponent from "./Command-Palette";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const searchInput = (
     <Input
+      onClick={() => setIsOpen(!isOpen)}
       aria-label="Search"
       classNames={{
         inputWrapper: "bg-default-100",
@@ -74,6 +78,7 @@ export const Navbar = () => {
       isMenuOpen={isMenuOpen}
       isBordered
     >
+      <CommandPaletteComponent open={isOpen} />
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">

@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "react-cmdk/dist/cmdk.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -9,6 +10,7 @@ import clsx from "clsx";
 import { ClerkLoading, ClerkProvider, ClerkLoaded } from "@clerk/nextjs";
 import LoadingComponent from "./loading";
 import { ThemeSwitch } from "@/components/theme-switch";
+import CommandPaletteComponent from "@/components/Command-Palette";
 
 export const metadata: Metadata = {
   title: {
@@ -72,6 +74,7 @@ export default function RootLayout({
               themeProps={{ attribute: "class", defaultTheme: "light" }}
             >
               <div className="relative flex flex-col h-screen">
+                {/* <CommandPaletteComponent /> */}
                 <Navbar />
                 <main className="container mx-auto max-w-7xl md:px-6 px-2 flex-grow py-8">
                   {children}
